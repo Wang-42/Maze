@@ -1,7 +1,8 @@
 ## todo list  
--menu to choose map  
--more map  
+-pause menu  
 -win screen  
+-menu to choose map  
+-more maps  
 -marker  
 -cheat (bfs,dfs,...)
 
