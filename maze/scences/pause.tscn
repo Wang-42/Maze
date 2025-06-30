@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://ixg22gvesmb2"]
+
+[ext_resource type="Script" uid="uid://xgeirpq4ru15" path="res://scripts/pause.gd" id="1_3sjom"]
+[ext_resource type="Theme" uid="uid://chtyicp5sy0oi" path="res://assets/Themes/menu_theme.tres" id="1_gblgs"]
+[ext_resource type="Shader" uid="uid://jjcap70hm3te" path="res://assets/Themes/pause.gdshader" id="2_aipqr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37acc"]
+shader = ExtResource("2_aipqr")
+shader_parameter/amount = 5.0
+
+[node name="pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -496.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3sjom")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_37acc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1528.0
+offset_top = -1224.0
+offset_right = 1736.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 11
+custom_minimum_size = Vector2(896, 632)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -316.0
+offset_right = 448.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 12
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.0
+offset_top = -282.5
+offset_right = 383.0
+offset_bottom = 282.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("1_gblgs")
+
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Resume
+"
+
+[node name="cheat" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Cheat"
+
+[node name="to_title" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Return to title screen
+"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Exit
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/to_title" to="." method="_on_to_title_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
