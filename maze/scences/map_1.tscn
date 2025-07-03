@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://pgdax65hrts4"]
+[gd_scene load_steps=16 format=4 uid="uid://pgdax65hrts4"]
 
 [ext_resource type="PackedScene" uid="uid://cyls7b5tbnyuw" path="res://scences/player.tscn" id="1_xq1lc"]
 [ext_resource type="Texture2D" uid="uid://i7ylh0vm1232" path="res://assets/Black_box.png" id="2_xq1lc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ixg22gvesmb2" path="res://scences/pause.tscn" id="6_fwwew"]
 [ext_resource type="PackedScene" uid="uid://lvr4s6o0d33g" path="res://scences/win.tscn" id="7_fwwew"]
 [ext_resource type="PackedScene" uid="uid://bambiw288jh0u" path="res://scences/Cheat.tscn" id="7_xqr58"]
+[ext_resource type="PackedScene" uid="uid://bq2kuru6iiri5" path="res://scences/search.tscn" id="8_xqr58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqr58"]
 texture = ExtResource("3_fwwew")
@@ -132,5 +133,7 @@ offset_left = 944.0
 offset_top = 416.0
 offset_right = 944.0
 offset_bottom = 416.0
+
+[node name="search" parent="." instance=ExtResource("8_xqr58")]
 
 [connection signal="body_entered" from="goal" to="win" method="_on_goal_body_entered"]
