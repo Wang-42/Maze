@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://lvr4s6o0d33g"]
+
+[ext_resource type="Script" uid="uid://du6jf0ppuvspx" path="res://scripts/win.gd" id="1_mdsgo"]
+[ext_resource type="Shader" uid="uid://jjcap70hm3te" path="res://assets/Themes/pause.gdshader" id="1_tttmu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdsgo"]
+shader = ExtResource("1_tttmu")
+shader_parameter/amount = 5.0
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mdsgo")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_mdsgo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1528.0
+offset_top = -1224.0
+offset_right = 1736.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1980, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+z_index = 10
+custom_minimum_size = Vector2(1280, 320)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1.19364e-05, 0.908697, 0.909815, 1)
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Press space to return to title screen"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer"]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Congratulations!
+You Escaped The Maze!"
+horizontal_alignment = 1

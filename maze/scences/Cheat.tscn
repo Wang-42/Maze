@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bambiw288jh0u"]
+
+[ext_resource type="Script" uid="uid://b51pwryojyowi" path="res://scripts/cheat.gd" id="1_j8s1f"]
+[ext_resource type="Shader" uid="uid://jjcap70hm3te" path="res://assets/Themes/pause.gdshader" id="1_o1ffd"]
+[ext_resource type="Theme" uid="uid://chtyicp5sy0oi" path="res://assets/Themes/menu_theme.tres" id="1_xdogm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8s1f"]
+shader = ExtResource("1_o1ffd")
+shader_parameter/amount = 5.0
+
+[node name="cheat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j8s1f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_j8s1f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1528.0
+offset_top = -1224.0
+offset_right = 1736.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 10
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Choose search method"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xdogm")
+
+[node name="BFS" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "BFS"
+
+[node name="DFS" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "DFS"
+
+[node name="resume" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Resume
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/BFS" to="." method="_on_bfs_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/DFS" to="." method="_on_dfs_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/resume" to="." method="_on_resume_button_pressed"]

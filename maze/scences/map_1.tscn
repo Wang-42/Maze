@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=4 uid="uid://pgdax65hrts4"]
 
-[ext_resource type="Script" uid="uid://cfmbey7c1vby7" path="res://scripts/map_1.gd" id="1_ur7bs"]
 [ext_resource type="PackedScene" uid="uid://cyls7b5tbnyuw" path="res://scences/player.tscn" id="1_xq1lc"]
 [ext_resource type="Texture2D" uid="uid://i7ylh0vm1232" path="res://assets/Black_box.png" id="2_xq1lc"]
 [ext_resource type="Texture2D" uid="uid://k00l5lk0fi2u" path="res://assets/gray_box.png" id="3_fwwew"]
 [ext_resource type="Texture2D" uid="uid://bw8irls1ah4cp" path="res://assets/While_box.png" id="3_m22bw"]
-[ext_resource type="Script" uid="uid://ci6pw20voxlqi" path="res://scripts/goal.gd" id="4_m22bw"]
 [ext_resource type="PackedScene" uid="uid://ixg22gvesmb2" path="res://scences/pause.tscn" id="6_fwwew"]
+[ext_resource type="PackedScene" uid="uid://lvr4s6o0d33g" path="res://scences/win.tscn" id="7_fwwew"]
+[ext_resource type="PackedScene" uid="uid://bambiw288jh0u" path="res://scences/Cheat.tscn" id="7_xqr58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqr58"]
 texture = ExtResource("3_fwwew")
@@ -68,13 +68,18 @@ sources/1 = SubResource("TileSetAtlasSource_xq1lc")
 size = Vector2(24, 24)
 
 [node name="map_1" type="Node2D"]
-script = ExtResource("1_ur7bs")
 
 [node name="player" parent="." instance=ExtResource("1_xq1lc")]
 position = Vector2(80, 80)
 collision_layer = 7
 collision_mask = 7
 safe_margin = 3.539
+
+[node name="search_bot" parent="." instance=ExtResource("1_xq1lc")]
+visible = false
+position = Vector2(80, 80)
+collision_layer = 0
+collision_mask = 0
 
 [node name="background" type="TileMapLayer" parent="."]
 z_index = -10
@@ -95,11 +100,17 @@ visibility_layer = 2
 position = Vector2(656, 688)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("4_m22bw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal"]
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_d44l3")
+
+[node name="cheat" parent="." instance=ExtResource("7_xqr58")]
+visible = false
+offset_left = 448.0
+offset_top = 272.0
+offset_right = 448.0
+offset_bottom = 272.0
 
 [node name="pause" parent="." instance=ExtResource("6_fwwew")]
 visible = false
@@ -107,5 +118,19 @@ offset_left = 960.0
 offset_top = 512.0
 offset_right = 960.0
 offset_bottom = 512.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[connection signal="body_entered" from="goal" to="goal" method="_on_body_entered"]
+[node name="win" parent="." instance=ExtResource("7_fwwew")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 944.0
+offset_top = 416.0
+offset_right = 944.0
+offset_bottom = 416.0
+
+[connection signal="body_entered" from="goal" to="win" method="_on_goal_body_entered"]
