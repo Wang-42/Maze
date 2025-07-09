@@ -3,8 +3,9 @@ extends CharacterBody2D
 @onready var ray_cast_up: RayCast2D = $RayCast_up
 @onready var ray_cast_left: RayCast2D = $RayCast_left
 @onready var ray_cast_right: RayCast2D = $RayCast_right
+@onready var pause: Control = $"../pause"
 
-var paused : bool = false
+var paused : bool = true
 
 func move_up():
 	position.y -= 32
@@ -22,22 +23,18 @@ func is_wall_left():
 	return ray_cast_left.is_colliding()
 func is_wall_right():
 	return ray_cast_right.is_colliding()
-func count_branches():
-	var a: int = 0
-	if is_wall_down():
-		a += 1
-	if is_wall_left():
-		a += 1
-	if is_wall_right():
-		a += 1
-	if is_wall_up():
-		a += 1
-	return a
 
 func pause_player():
 	paused = !paused
 
 func _input(event):
+	if event.is_action_pressed("pause"):
+		if paused:
+			pause_player()
+			pause.hide()
+		else:
+			pause_player()
+			pause.show()
 	if event.is_action_pressed("move_up") && !is_wall_up() && !paused:
 		move_up()
 	if event.is_action_pressed("move_down") && !is_wall_down() && !paused:
