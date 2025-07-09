@@ -106,5 +106,6 @@ text = "Exit
 "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/cheat" to="." method="_on_cheat_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/to_title" to="." method="_on_to_title_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
