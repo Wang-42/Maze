@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c3wu3ok8j8qpc"]
+[gd_scene load_steps=20 format=4 uid="uid://c3wu3ok8j8qpc"]
 
 [ext_resource type="Texture2D" uid="uid://b0gg05rs50qcy" path="res://assets/While_box.png" id="1_jx3ei"]
 [ext_resource type="Texture2D" uid="uid://3h5wl8vbtks4" path="res://assets/gray_box.png" id="2_cfxbr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://chtyicp5sy0oi" path="res://assets/menu_theme.tres" id="7_lvua1"]
 [ext_resource type="Script" uid="uid://1xnp2ab382w6" path="res://scripts/pause.gd" id="8_hnbpv"]
 [ext_resource type="Shader" uid="uid://d21gsjbuv3rpf" path="res://assets/pause.gdshader" id="9_lvua1"]
+[ext_resource type="Script" uid="uid://h24xdxib1n8i" path="res://scripts/cheat.gd" id="11_nn1ya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfxbr"]
 texture = ExtResource("1_jx3ei")
@@ -321,9 +322,80 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
 text = "Press Esc to return to main menu"
 
+[node name="cheat" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("11_nn1ya")
+
+[node name="ColorRect" type="ColorRect" parent="cheat"]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="cheat"]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="cheat/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="cheat/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 175
+text = "Choose method"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="cheat/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("7_lvua1")
+
+[node name="BFS" type="Button" parent="cheat/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "BFS"
+
+[node name="DFS" type="Button" parent="cheat/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 150
+text = "DFS"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 1016.0
+offset_right = 1719.0
+offset_bottom = 1085.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Arrow keys to move                                                         Esc to pause"
+
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/easy" to="choose_map" method="_on_easy_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/normal" to="choose_map" method="_on_normal_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/hard" to="choose_map" method="_on_hard_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/resume" to="pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/to_menu" to="pause" method="_on_to_menu_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/cheat" to="pause" method="_on_cheat_pressed"]
+[connection signal="pressed" from="cheat/MarginContainer/VBoxContainer/VBoxContainer2/BFS" to="cheat" method="_on_bfs_pressed"]
+[connection signal="pressed" from="cheat/MarginContainer/VBoxContainer/VBoxContainer2/DFS" to="cheat" method="_on_dfs_pressed"]
