@@ -17,10 +17,10 @@ func _on_easy_pressed() -> void:
 	player.pause_player()
 
 func _on_normal_pressed() -> void:
-	var file = FileAccess.open("res://map/map_2.txt", FileAccess.READ)
+	var file = FileAccess.open("res://map/map_4.txt", FileAccess.READ)
 	var content = file.get_as_text()
 	map.save_to_map(content)
-	map.print_map(31,41)
+	map.print_map(31,31)
 	file.close()
 	choose_map.hide()
 	player.pause_player()
