@@ -34,3 +34,16 @@ func _on_hard_pressed() -> void:
 	file.close()
 	choose_map.hide()
 	player.pause_player()
+
+
+func _on_random_pressed() -> void:
+	var rand_ver = randi_range(11,31)
+	var rand_hoz = randi_range(11,57)
+	if rand_hoz % 2 == 0:
+		rand_hoz = rand_hoz + 1
+	if rand_ver % 2 == 0:
+		rand_ver = rand_ver + 1
+	map.generate_map(rand_ver,rand_hoz)
+	map.print_map(rand_ver,rand_hoz)
+	choose_map.hide()
+	player.pause_player()

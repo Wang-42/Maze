@@ -157,3 +157,51 @@ func get_path_bfs(x,y):
 		path_count = path_count + 1
 		path[p.y*hoz_max + p.x] = 1
 		p = p.parent
+
+var hasVisited:= []
+func generate_map(ver,hoz):
+	hoz_max = hoz
+	ver_max = ver
+	map.resize(hoz * ver)
+	map.fill(1)
+	path.resize(hoz * ver)
+	path.fill(0)
+	hasVisited.append(Vector2i(1,1))
+	visit(1,1)
+	map[(ver_max - 1) * hoz_max + hoz_max - 2] = GOAL
+func visit(y,x):
+	map[y * hoz_max + x ] = 0
+	while true:
+		var unvisited_neighbors:= []
+		if y > 1 && !hasVisited.has(Vector2i(y - 2, x)):
+			unvisited_neighbors.append('u')
+		if y < ver_max - 2 && !hasVisited.has(Vector2i(y + 2, x)):
+			unvisited_neighbors.append('d')
+		if x > 1 && !hasVisited.has(Vector2i(y, x - 2)):
+			unvisited_neighbors.append('l')
+		if x < hoz_max - 2 && !hasVisited.has(Vector2i(y, x + 2)):
+			unvisited_neighbors.append('r')
+		if unvisited_neighbors.size() == 0:
+			return
+		else:
+			var next_intersection = unvisited_neighbors.pick_random()
+			var next_x = 0
+			var next_y = 0
+			if next_intersection == 'u':
+				next_y = y - 2
+				next_x = x
+				map[(y - 1) * hoz_max + x] = 0
+			elif next_intersection == 'd':
+				next_y = y + 2
+				next_x = x
+				map[(y + 1) * hoz_max + x] = 0
+			elif next_intersection == 'l':
+				next_y = y
+				next_x = x - 2
+				map[y * hoz_max + x - 1] = 0
+			elif next_intersection == 'r':
+				next_y = y
+				next_x = x + 2
+				map[y * hoz_max + x + 1] = 0
+			hasVisited.append(Vector2i(next_y,next_x))
+			visit(next_y,next_x)

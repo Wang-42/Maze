@@ -149,7 +149,7 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="choose_map/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 175
 text = "Choose difficulty"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -162,20 +162,25 @@ theme = ExtResource("7_lvua1")
 
 [node name="easy" type="Button" parent="choose_map/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 125
 text = "Easy"
 
 [node name="normal" type="Button" parent="choose_map/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 125
 text = "Normal
 "
 
 [node name="hard" type="Button" parent="choose_map/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 125
 text = "Hard
 "
+
+[node name="random" type="Button" parent="choose_map/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 125
+text = "Random"
 
 [node name="pause" type="Control" parent="."]
 visible = false
@@ -378,6 +383,7 @@ text = "Arrow keys to move                                                      
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/easy" to="choose_map" method="_on_easy_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/normal" to="choose_map" method="_on_normal_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/hard" to="choose_map" method="_on_hard_pressed"]
+[connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/random" to="choose_map" method="_on_random_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/resume" to="pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/to_menu" to="pause" method="_on_to_menu_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/VBoxContainer/VBoxContainer/cheat" to="pause" method="_on_cheat_pressed"]
