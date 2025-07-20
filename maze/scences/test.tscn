@@ -1,19 +1,19 @@
-[gd_scene load_steps=21 format=4 uid="uid://c3wu3ok8j8qpc"]
+[gd_scene load_steps=20 format=4 uid="uid://c5txxjmcn43va"]
 
-[ext_resource type="Texture2D" uid="uid://b0gg05rs50qcy" path="res://assets/While_box.png" id="1_jx3ei"]
-[ext_resource type="Texture2D" uid="uid://3h5wl8vbtks4" path="res://assets/gray_box.png" id="2_cfxbr"]
-[ext_resource type="PackedScene" uid="uid://d32if1iv7icdl" path="res://scences/player.tscn" id="2_xfuu6"]
-[ext_resource type="Texture2D" uid="uid://c6j10mhbn0j3n" path="res://assets/Black_box.png" id="3_b174u"]
-[ext_resource type="Texture2D" uid="uid://c6dhx6r35w0g" path="res://assets/red_box.png" id="4_a0bl5"]
-[ext_resource type="Script" uid="uid://bop06c5m3lkb8" path="res://scripts/map.gd" id="4_cho2i"]
-[ext_resource type="Script" uid="uid://dajbj5xocnbv5" path="res://scripts/choose_map.gd" id="6_hnbpv"]
-[ext_resource type="Theme" uid="uid://chtyicp5sy0oi" path="res://assets/menu_theme.tres" id="7_lvua1"]
-[ext_resource type="Script" uid="uid://1xnp2ab382w6" path="res://scripts/pause.gd" id="8_hnbpv"]
-[ext_resource type="Shader" uid="uid://d21gsjbuv3rpf" path="res://assets/pause.gdshader" id="9_lvua1"]
-[ext_resource type="Script" uid="uid://h24xdxib1n8i" path="res://scripts/cheat.gd" id="11_nn1ya"]
+[ext_resource type="Texture2D" uid="uid://b0gg05rs50qcy" path="res://assets/While_box.png" id="1_hn3f5"]
+[ext_resource type="Texture2D" uid="uid://3h5wl8vbtks4" path="res://assets/gray_box.png" id="2_hwgyo"]
+[ext_resource type="Texture2D" uid="uid://c6j10mhbn0j3n" path="res://assets/Black_box.png" id="3_pewiy"]
+[ext_resource type="Texture2D" uid="uid://c6dhx6r35w0g" path="res://assets/red_box.png" id="4_nbeij"]
+[ext_resource type="Script" uid="uid://bop06c5m3lkb8" path="res://scripts/map.gd" id="5_owck0"]
+[ext_resource type="PackedScene" uid="uid://d32if1iv7icdl" path="res://scences/player.tscn" id="6_x2cc5"]
+[ext_resource type="Script" uid="uid://dajbj5xocnbv5" path="res://scripts/choose_map.gd" id="7_xtfan"]
+[ext_resource type="Theme" uid="uid://chtyicp5sy0oi" path="res://assets/menu_theme.tres" id="8_vx1td"]
+[ext_resource type="Script" uid="uid://1xnp2ab382w6" path="res://scripts/pause.gd" id="9_8yowm"]
+[ext_resource type="Shader" uid="uid://d21gsjbuv3rpf" path="res://assets/pause.gdshader" id="10_f7eap"]
+[ext_resource type="Script" uid="uid://h24xdxib1n8i" path="res://scripts/cheat.gd" id="11_tyr31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfxbr"]
-texture = ExtResource("1_jx3ei")
+texture = ExtResource("1_hn3f5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -32,7 +32,7 @@ texture = ExtResource("1_jx3ei")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yru2q"]
-texture = ExtResource("2_cfxbr")
+texture = ExtResource("2_hwgyo")
 1:0/0 = 0
 0:0/0 = 0
 0:1/0 = 0
@@ -44,23 +44,19 @@ sources/1 = SubResource("TileSetAtlasSource_yru2q")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cho2i"]
 resource_name = "black"
-texture = ExtResource("3_b174u")
+texture = ExtResource("3_pewiy")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/size_in_atlas = Vector2i(2, 2)
 0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/size_in_atlas = Vector2i(2, 2)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hnbpv"]
 resource_name = "while"
-texture = ExtResource("1_jx3ei")
+texture = ExtResource("1_hn3f5")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:2/size_in_atlas = Vector2i(2, 2)
@@ -71,7 +67,7 @@ texture = ExtResource("1_jx3ei")
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nn1ya"]
-texture = ExtResource("4_a0bl5")
+texture = ExtResource("4_nbeij")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 
@@ -83,11 +79,8 @@ sources/1 = SubResource("TileSetAtlasSource_cho2i")
 sources/2 = SubResource("TileSetAtlasSource_hnbpv")
 sources/4 = SubResource("TileSetAtlasSource_nn1ya")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn1ya"]
-size = Vector2(16, 16)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0bl5"]
-shader = ExtResource("9_lvua1")
+shader = ExtResource("10_f7eap")
 shader_parameter/amount = 3.0
 
 [node name="game" type="Node2D"]
@@ -100,22 +93,14 @@ tile_set = SubResource("TileSet_b174u")
 collision_enabled = false
 
 [node name="map" type="TileMapLayer" parent="."]
+scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_lvua1")
-script = ExtResource("4_cho2i")
+script = ExtResource("5_owck0")
 
-[node name="goal" type="Area2D" parent="map"]
-visible = false
-position = Vector2(-16, -16)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/goal"]
-shape = SubResource("RectangleShape2D_nn1ya")
-
-[node name="player" parent="." instance=ExtResource("2_xfuu6")]
+[node name="player" parent="." instance=ExtResource("6_x2cc5")]
 z_index = 5
-position = Vector2(80, 80)
-scale = Vector2(0.8, 0.8)
-motion_mode = 1
-wall_min_slide_angle = 0.0
+position = Vector2(40, 40)
+scale = Vector2(0.5, 0.5)
 
 [node name="choose_map" type="Control" parent="."]
 z_index = 10
@@ -123,7 +108,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("6_hnbpv")
+script = ExtResource("7_xtfan")
 
 [node name="ColorRect" type="ColorRect" parent="choose_map"]
 layout_mode = 1
@@ -158,7 +143,7 @@ vertical_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("7_lvua1")
+theme = ExtResource("8_vx1td")
 
 [node name="easy" type="Button" parent="choose_map/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -184,7 +169,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("8_hnbpv")
+script = ExtResource("9_8yowm")
 
 [node name="ColorRect" type="ColorRect" parent="pause"]
 layout_mode = 1
@@ -219,7 +204,7 @@ vertical_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("7_lvua1")
+theme = ExtResource("8_vx1td")
 
 [node name="resume" type="Button" parent="pause/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -312,7 +297,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("11_nn1ya")
+script = ExtResource("11_tyr31")
 
 [node name="ColorRect" type="ColorRect" parent="cheat"]
 z_index = 5
@@ -348,7 +333,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("7_lvua1")
+theme = ExtResource("8_vx1td")
 
 [node name="BFS" type="Button" parent="cheat/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -374,7 +359,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Arrow keys to move                                                         Esc to pause"
 
-[connection signal="body_entered" from="map/goal" to="map" method="_on_goal_body_entered"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/easy" to="choose_map" method="_on_easy_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/normal" to="choose_map" method="_on_normal_pressed"]
 [connection signal="pressed" from="choose_map/MarginContainer/VBoxContainer/VBoxContainer/hard" to="choose_map" method="_on_hard_pressed"]

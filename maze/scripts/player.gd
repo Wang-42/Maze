@@ -8,13 +8,17 @@ extends CharacterBody2D
 var paused : bool = true
 
 func move_up():
-	position.y -= 32
+	if !is_wall_up():
+		position.y -= 32
 func move_down():
-	position.y += 32
+	if !is_wall_down():
+		position.y += 32
 func move_left():
-	position.x -= 32
+	if !is_wall_left():
+		position.x -= 32
 func move_right():
-	position.x += 32
+	if !is_wall_right():
+		position.x += 32
 func is_wall_up():
 	return ray_cast_up.is_colliding()
 func is_wall_down():
@@ -35,11 +39,13 @@ func _input(event):
 		else:
 			pause_player()
 			pause.show()
-	if event.is_action_pressed("move_up") && !is_wall_up() && !paused:
-		move_up()
-	if event.is_action_pressed("move_down") && !is_wall_down() && !paused:
-		move_down()
-	if event.is_action_pressed("move_left") && !is_wall_left() && !paused:
-		move_left()
-	if event.is_action_pressed("move_right") && !is_wall_right() && !paused:
-		move_right()
+
+var speed = 200
+func get_input():
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = input_direction * speed
+
+func _physics_process(delta):
+	if !paused:
+		get_input()
+	move_and_slide()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kblplul4i6e7" path="res://assets/made-a-transparent-version-of-that-firefly-emoji-from-v0-ttrcb5e9mjhc1.webp" id="2_efpdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p4d"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 17

@@ -2,6 +2,7 @@ extends TileMapLayer
 @onready var map_layer: TileMapLayer = $"."
 @onready var player: CharacterBody2D = $"../player"
 @onready var win: Control = $"../win"
+@onready var goal_zone: Area2D = $goal
 
 var is_in_goal:= false
 var path_count: int = 0
@@ -23,11 +24,12 @@ class point:
 	func get_parent():
 		return self.parent
 
-
+func _on_goal_body_entered(body: Node2D) -> void:
+	win.show()
+	is_in_goal = true
+	player.velocity = Vector2(0,0)
+	player.pause_player()
 func _input(event: InputEvent) -> void:
-	if player.position.x == goal_global.x && player.position.y == goal_global.y:
-		win.show()
-		is_in_goal = true
 	if event.is_action_pressed("pause") && is_in_goal: 
 		get_tree().change_scene_to_file("res://scences/main_menu.tscn")
 
@@ -61,8 +63,10 @@ func print_map(ver,hoz):
 			if map[i] == 3:
 				map_layer.set_cell(coords,2,atlas_coords,0)
 				goal_global.x = coords.x * 32 + 16
+				goal_zone.position.x = goal_global.x
 				goal.x = h 
 				goal_global.y = coords.y * 32 + 16
+				goal_zone.position.y = goal_global.y
 				goal.y = v
 			i = i + 1
 
