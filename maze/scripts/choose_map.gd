@@ -37,8 +37,8 @@ func _on_hard_pressed() -> void:
 
 
 func _on_random_pressed() -> void:
-	var rand_ver = randi_range(11,31)
-	var rand_hoz = randi_range(11,57)
+	var rand_ver = randi_range(5,31)
+	var rand_hoz = randi_range(5,57)
 	if rand_hoz % 2 == 0:
 		rand_hoz = rand_hoz + 1
 	if rand_ver % 2 == 0:

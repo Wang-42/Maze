@@ -13,7 +13,6 @@ func _on_resume_pressed() -> void:
 
 func _on_cheat_pressed() -> void:
 	map.clear_path()
-	map.clear_map()
 	pause.hide()
 	cheat.show()
 
