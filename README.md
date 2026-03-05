@@ -1,4 +1,3 @@
 ## todo list  
--marker  
--cheat (bfs,dfs,...)
+-marker
 
